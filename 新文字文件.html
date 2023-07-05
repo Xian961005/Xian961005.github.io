@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8">
+    <title>每日一句</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <h1>每日一句</h1>
+    <p id="dailyQuote"></p>
+
+    <script>
+        var quotes = [
+            "今天的座右銘：努力不一定成功，但不努力一定會後悔。",
+            "堅持不是一件容易的事，但它能帶來偉大的成就。",
+            "成功並不是最終目標，失敗並不是致命的，重要的是繼續前進。",
+            "只要你努力，沒有什麼是不可能的。",
+            "相信自己，你能夠做到比自己想像的更多。",
+            "每一個失敗都是邁向成功的一步。",
+            "堅持不懈，直到達成目標。",
+            "只要你不放棄，希望就會存在。"
+        ];
+
+        function updateQuote() {
+            var currentDate = new Date();
+            var minutes = currentDate.getMinutes();
+            var quoteIndex = Math.floor(minutes / 30) % quotes.length;
+            var quote = quotes[quoteIndex];
+            document.getElementById("dailyQuote").textContent = quote;
+        }
+
+        // 初始化頁面
+        updateQuote();
+
+        // 每30分鐘更新一次句子
+        setInterval(updateQuote, 30 * 60 * 1000);
+    </script>
+</body>
+</html>
